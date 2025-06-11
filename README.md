@@ -18,8 +18,9 @@
      `python manage.py runserver`
   3. Third terminal
      `cd frontend`
-     `npm install typescript@^5 --save-dev`
-     `npm install --legacy-peer-deps`
-     `npm install react-scripts --save --legacy-peer-deps`
-     `npm install`
-     `npm start` 
+     <br>
+     `npm install typescript@^5 --save-dev`<br>
+     `npm install --legacy-peer-deps`<br>
+     `npm install react-scripts --save --legacy-peer-deps`<br>
+     `npm install`<br>
+     `npm start` <br>
