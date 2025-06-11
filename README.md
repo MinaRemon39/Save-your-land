@@ -11,12 +11,15 @@
 - Donwload node js from official website
 - open 3 terminals within folder of repo
   1. First terminal
+     - `env\Scripts\activate.bat`
      - `cd backend`
      - `uvicorn api.main:app --reload --port 8001`
-  2. Second terminal
+  3. Second terminal
+     - `env\Scripts\activate.bat`
      - `cd backend`
      - `python manage.py runserver`
-  3. Third terminal
+  5. Third terminal
+     - `env\Scripts\activate.bat`
      - `cd frontend`
      - `npm install typescript@^5 --save-dev`
      - `npm install --legacy-peer-deps`
