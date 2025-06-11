@@ -21,8 +21,8 @@
   5. Third terminal
      - `env\Scripts\activate.bat`
      - `cd frontend`
-     - `npm install typescript@^5 --save-dev`
      - `npm install --legacy-peer-deps`
+     - `npm install typescript@^5 --save-dev --legacy-peer-deps`
      - `npm install react-scripts --save --legacy-peer-deps`
      - `npm install`
      - `npm start` 
