@@ -1,0 +1,356 @@
+{
+  "welcomeMessage": "This website provides\ninformation on how to\ncare for {{plant}}",
+  "plant": "plants",
+  "home": "Home",
+  "about": "About",
+  "loginBtn": "Login",
+  "seeMore": "See more",
+  "whatWeDo": "What We Do ?",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
+  "aboutSection": {
+    "title": "What We Do ?",
+    "step1": "Farmers input soil data like salinity, moisture, and PH...etc",
+    "step2": "The program analyzes the data to create a detailed land profile.",
+    "step3": "An AI chatbot discusses findings with the user, asking questions and providing tailored advice.",
+    "step4": "The system offers actionable insights, such as irrigation, or fertilization, or crop selection...etc",
+    "finalNote": "The flow visually represents how the program supports farmers in understanding and optimizing their agricultural land. It highlights how modern technology bridges the gap between complex data analysis and practical farming solutions."
+  },
+  "footer": {
+    "phoneTitle": "Phone number:-",
+    "phone": "01124881500",
+    "contactTitle": "Contact Us:-",
+"contacts": [
+    { "name": "Mina Remon Adel", "email": "minaremon009@gmail.com" },
+    { "name": "Rogena Yousry Adel", "email": "rogenayousryadel12345@gmail.com" },
+    { "name": "Shahd Abdelaziz Farghaly", "email": "shahdabdelaziz2003@gmail.com " },
+    { "name": "Shaimaa Mohamed Abuzied", "email": "Shaimaa.m.a23@gmail.com" },
+    { "name": "Marwa Yousef Wardany", "email": "marwawardany9@gmail.com" },
+    { "name": "Selwan Ezzat Mohammed", "email": "selwanezzat24@gmail.com " },
+    { "name": "Mirna Magdy Halim", "email": "mirnamagdy1@gmail.com" }
+  ]
+},
+"navbar": {
+    "home": "Home",
+    "about": "About",
+    "articles": "Articles",
+    "shop": "Shop",
+    "chat": "Chat",
+    "disease": "Disease Detection",
+    "publish": "Publish",
+    "profile": "Profile",
+    "admin": "New Administrator",
+    "logout": "Log out"
+  },
+   "forgetPassword": {
+    "title": "Forgot Password",
+    "instruction": "Please, enter your email address and you will receive a link to create a new password via email",
+    "emailLabel": "Your Email",
+    "placeholder": "example@gmail.com",
+    "sendLink": "Send Link",
+    "successTitle": "Check your email 📩",
+    "successMessage": "We’ve sent you a password reset link. Please check your inbox and follow the instructions.",
+    "missingEmail": "Please enter your email address",
+    "successSent": "✅ Password reset link sent. Please check your email.",
+    "error": "Something went wrong",
+    "serverError": "Error connecting to server. Please try again later."
+  },
+  "done": {
+    "title": "Reset Password",
+    "message": "Your password has been reset",
+    "loginButton": "Login"
+  },
+
+    "buttons": {
+    "newImage": "New image",
+    "addToLand": "Add to land",
+    "detect": "Detect",
+    "giveAdvice": "Give me advice"
+  },
+  
+  "alerts": {
+    "subscriptionRequired": "You need an active subscription to use this feature.",
+    "uploadImage": "You should upload an image.",
+    "reselectImage": "Please reselect the image.",
+    "noToken": "No token found, please log in again.",
+    "detectFailed": "Failed to detect disease.",
+    "aiRequired": "You are not subscribed to the AI Assistant feature.",
+    "detectFirst": "You should detect the image first.",
+    "noDisease": "No disease was detected, so no advice can be given.",
+  
+    "uploadFirst": "Please upload an image first.",
+    "adviceError": "Failed to get advice. Please check the server.",
+  "adviceFetchError": "Error fetching advice."
+  },
+
+
+  "image": {
+    "uploadedAlt": "Uploaded image",
+    "noImageToShow": "No image to show",
+    "detectedAlt": "Detected image",
+    "noDetectedImage": "There is no image to show"
+  },
+  "loading": "Loading",
+  "advice": {
+    "title": "Advice"
+
+  },
+    "landsPage": {
+    "title": "My Lands Profile",
+    "landName": "Land name",
+    "status": "Status",
+    "healthy": "Healthy",
+    "moderateStress": "Moderate Stress",
+    "highStress": "High Stress",
+    "choose": "Choose",
+    "edit": "Edit",
+    "chat": "Chat",
+    "addLand": "+ Add Land",
+    "noLands": "No lands available. Please add some lands first.",
+    "diseaseSuccess": "Disease successfully linked to land!",
+    "diseaseError": "Error linking disease to land.",
+    "missingData": "Missing data. Make sure you've uploaded and detected the disease first."
+  },
+  "noArticles": "No articles yet!",
+  "error": "Error",
+    "landNamePlaceholder": "Land name",
+    "plantTypePlaceholder": "Type of plant",
+    "soilTypePlaceholder": "Soil Type",
+    "soilTypes": {
+      "sandy": "Sandy Soil",
+      "clay": "Clay Soil",
+      "loamy": "Loamy Soil",
+      "silty": "Silty Soil",
+      "chalky": "Chalky Soil",
+      "gravelly": "Gravelly or Rocky Soil"
+    },
+   "soilPH": "Soil PH",
+        "soilMoisture": "Soil moisture",
+        "soilAir": "Soil air",
+        "soilTemp": "Soil temperature",
+        "organicMatter": "Organic matter",
+        "ambientTemp": "Ambient temperature",
+        "humidity": "Humidity",
+        "lightIntensity": "Light intensity",
+        "nitrogenLevel": "Nitrogen level",
+        "potassiumLevel": "Potassium level",
+        "phosphorusLevel": "Phosphorus level",
+        "chlorophyllContent": "Chlorophyll Content",
+        "electrochemicalSignal": "Electrochemical Signal",
+        "saveButton": "Save",
+        "loadingMessage": "Loading...",
+        "errorSubscription": "Subscription data not loaded. Please try again.",
+        "errorLimitReached": "You have reached the maximum number of land profiles allowed in your subscription.",
+        "errorPH": "Soil pH must be between 0 and 14.",
+         "mainHeader": "Enter the information about your land to help the chatbot give you best solution to your problem.",
+         "errors": {
+  "subscriptionNotLoaded": "Subscription data not loaded. Please try again.",
+  "subscriptionLimitReached": "You have reached the maximum number of land profiles allowed.",
+  "soilPH": "Soil pH must be between 0 and 14.",
+  "soilMoisture": "Soil moisture must be between 0% and 100%.",
+  "soilTemp": "Soil temperature must be between -50°C and 80°C.",
+  "ambientTemp": "Ambient temperature must be between -50°C and 80°C.",
+  "humidity": "Humidity must be between 0% and 100%.",
+  "lightIntensity": "Light intensity must be between 0 and 200000 lux.",
+  "nitrogenLevel": "Nitrogen level must be between 0 and 1000 mg/kg.",
+  "phosphorusLevel": "Phosphorus level must be between 0 and 500 mg/kg.",
+  "potassiumLevel": "Potassium level must be between 0 and 1000 mg/kg.",
+  "organicMatter": "Organic matter must be between 0% and 20%.",
+  "saveFailed": "Something went wrong while saving the land.",
+  "saveSuccess": "Land information saved successfully!"
+},
+
+
+  "login": {
+    "signInTitle": "Sign In",
+    "signUpTitle": "Sign Up",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "email": "Email",
+    "phone": "Phone Number",
+    "link": "Article Link",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "forgotPassword": "Forgot your password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signUpUser": "Sign up as User",
+    "signUpPublisher": "Sign up as Publisher",
+    "publisherWait":"Your sign-up as a publisher was successful. Please wait for admin approval before you can log in.",
+    "signUpSuccess":"Sign-up successful! You can now log in.",
+    "signUpError":"Registration failed: ",
+    "invalidPhone": "Phone number must be exactly 11 digits!",
+    "enterPhone": "Please enter a phone number!",
+    "passwordMismatch": "Passwords do not match!",
+    "passwordShort": "Password must be at least 6 characters long!",
+    "unknownError": "An unknown error occurred",
+    "emailExists": "Email already exists",
+  "usernameExists": "Username already exists"
+
+  },
+  "panels": {
+    "welcome": "Hello Friend!",
+    "signInMessage": "Please Sign in into your account with the given details to continue",
+    "signUpMessage":"Please provide the information to register your account"
+  },
+  "admin": {
+  "createTitle": "Creating a new administrator account",
+  "saveButton": "Save As Administrator"
+},
+
+  "adminSignUp": {
+    "accessDeniedTitle": "Access Denied",
+    "accessDeniedMessage": "You are not authorized to view this page.",
+    "loading.": "Loading...",
+    "passwordsDoNotMatch": "Passwords do not match.",
+    "savedSuccess": "Administrator saved successfully!",
+    "saveFailed": "Failed to create administrator.",
+    "somethingWentWrong": "Something went wrong.",
+    "phoneDigitsOnly": "Phone number must contain only digits.",
+    "passwordStrength": {
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong"
+    },
+    "form": {
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "phoneNumber": "Phone Number",
+      "submit": "Create Administrator"
+    }
+  },
+
+  "hardware": "Hardware",
+"deviceDescription": "The devices are equipped with advanced sensors that collect various types of environmental data from the soil—such as electrical conductivity, humidity levels, temperature, and other key indicators—and automatically transmit this information to the soil profile system, where it is stored, analyzed, and used to monitor and optimize agricultural conditions. This process enables real-time tracking of soil health, allowing farmers and agricultural systems to make informed decisions about irrigation, fertilization, and crop management. Ultimately, the integration of such smart technologies contributes to more sustainable and efficient farming practices by ensuring that every piece of land receives the care it specifically needs.",
+
+  "buyNow": "Buy Now",
+  "setupReservation": "Reservation for setup",
+  "subscribeTitle": "Subscribe & Stay Connected",
+  "landProfiles": "Land Profiles",
+  "totalPrice": "Total Price",
+  "aiAssistant": "AI Assistant",
+  "diseaseDetection": "Image Disease Detection",
+  "streaming": "Hardware Streaming",
+  "note": "Note",
+  "hardwareNote": "If you know the number of hardware devices, provide the quantity directly. If you are Unsure, press 'Reservation for setup' and specify your preferred time for an on-site assessment.",
+  "hardwarePrice": "{{price}}$",
+  "profile": {
+  "name": "Name",
+  "date": "Date",
+  "status": "Status",
+  "description": "Description",
+  "noBio": "No bio available",
+  "edit": "Edit",
+  "noPublishedArticles": "You haven't published any articles yet.",
+  "noLovedArticles": "You haven't loved any articles yet.",
+  "publishedSectionTitle": "What I publish:",
+  "lovedSectionTitle": "What I love:",
+  "fetchError": "Failed to fetch data. Please try again.",
+  "noToken": "No token found, please log in."
+},
+  "editProfile": {
+    "back": "Back to Profile",
+    "title": "Edit Profile",
+    "changePhoto": "Change Photo",
+    "username": "Username",
+    "email": "Email",
+    "phone": "Phone",
+    "description": "Description",
+    "cancel": "Cancel",
+    "save": "Save",
+    "errorUpdate": "Error updating profile"
+  },
+  "publish": {
+    "accessDenied": "Access denied. Only publishers can access the publish page.",
+    "enterURL": "Enter URL",
+    "fillRequired": "Please fill in all required fields.",
+    "loginRequired": "Authentication is required. Please log in.",
+    "Failed": "Failed to publish article.",
+    "success": "Article published successfully!",
+    "postButton": "Post",
+    "titleLabel": "Article Title",
+    "contentLabel": "Article Content",
+    "uploadImage": "Upload an image",
+    "wordsLimit":"The article must be between 100 and 1000 words.",
+    "updateButton":"Update",
+    "updatingButton":"Update..."
+  },
+  "article":{
+    "seeMore": "See more"
+  },
+  "notifications": {
+    "accessDenied": "Access denied: This page is for administrators only.",
+    "publisherTitle": "People applying to be publishers:-",
+    "hardwareTitle": "People want to buy hardware:-",
+    "name": "Name",
+    "email": "Email",
+    "link": "Link",
+    "phone": "Phone",
+    "kitsOrSetup": "# of kits / Setup",
+    "accept": "Accept",
+    "refuse": "Refuse",
+    "viewArticle": "View Article",
+    "noEntries": "No entries yet.",
+    "requestAccepted": "The request has been successfully accepted.",
+    "requestRefused": "The request has been successfully refused.",
+    "errorUpdating": "Something went wrong while updating the status.",
+    "back": "Back"
+  },
+  "confirmDelete": "Are you sure you want to delete this article?",
+  "deleteArticleError": "Failed to delete the article.",
+  "reset": {
+    "enterNewPassword": "Enter New Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password",
+    "submit": "Submit"
+  },
+  "alertsPass": {
+    "passwordsDontMatch": "Passwords do not match!",
+    "passwordTooShort": "Password must be at least 6 characters long!",
+    "passwordUpdated": "Password updated successfully!",
+    "somethingWentWrong": "Something went wrong",
+    "serverError": "Error connecting to server. Please try again later."
+  },
+  "password": {
+    "strength": {
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong"
+    }
+  },
+  "editPublish": {
+  "accessDenied": "Access denied.",
+  "fillAllFields": "Please fill in all fields.",
+  "wordCountError": "The article must be between 100 and 1000 words. Current count: {{count}}",
+  "updateSuccess": "Article updated successfully!",
+  "updateFailed": "Error updating article.",
+  "deleteImageError": "Failed to delete image.",
+  "fetchError": "Error fetching article:"
+},
+"chat": {
+  "subscriptionRequired": "You cannot use the chat without an active subscription.",
+  "subscribeNow": "Subscribe Now"
+},
+"payment": {
+  "enterCardDetails": "Enter Card Details:",
+  "year": "year"
+},
+
+  "stripeNotLoaded": "Stripe is not loaded yet.",
+  "cannotReduceLandProfiles": "You can't reduce your land profiles below your current subscription.",
+  "noChangesToPayFor": "No changes detected to pay for.",
+  "cardDetailsMissing": "Card details not entered.",
+  "paymentFailed": "Payment failed: {{message}}",
+  "paymentSuccess": "Payment successful and subscription activated!",
+  "activationFailed": "Failed to activate subscription",
+  "errorr": "Error: {{message}}",
+  "selectAtLeastOneHardware": "Please select at least 1 hardware device.",
+  "hardwareRequestSuccess": "Hardware purchase request sent!",
+  "hardwareRequestFailed": "Failed to send request.",
+  "reservationSuccess": "Setup reservation request sent!",
+  "reservationFailed": "Failed to send reservation."
+}
