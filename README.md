@@ -11,16 +11,15 @@
 - Donwload node js from official website
 - open 3 terminals within folder of repo
   1. First terminal
-     `cd backend`
-     `uvicorn api.main:app --reload --port 8001`
+     - `cd backend`
+     - `uvicorn api.main:app --reload --port 8001`
   2. Second terminal
-     `cd backend`
-     `python manage.py runserver`
+     - `cd backend`
+     - `python manage.py runserver`
   3. Third terminal
-     `cd frontend`
-     <br>
-     `npm install typescript@^5 --save-dev`<br>
-     `npm install --legacy-peer-deps`<br>
-     `npm install react-scripts --save --legacy-peer-deps`<br>
-     `npm install`<br>
-     `npm start` <br>
+     - `cd frontend`
+     - `npm install typescript@^5 --save-dev`
+     - `npm install --legacy-peer-deps`
+     - `npm install react-scripts --save --legacy-peer-deps`
+     - `npm install`
+     - `npm start` 
