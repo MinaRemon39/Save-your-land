@@ -21,8 +21,8 @@
   5. Third terminal
      - `env\Scripts\activate.bat`
      - `cd frontend`
+     - `rm -rf node_modules package-lock.json`
      - `npm install --legacy-peer-deps`
-     - `npm install typescript@^5 --save-dev --legacy-peer-deps`
-     - `npm install react-scripts --save --legacy-peer-deps`
-     - `npm install`
+     - `npm install i18next react-i18next --legacy-peer-deps`
+     - `npm install ajv@6 ajv-keywords@3 --save --legacy-peer-deps`
      - `npm start` 
