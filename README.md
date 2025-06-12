@@ -1,6 +1,7 @@
 # Save-your-land
 
 # Instructions 
+> **! Note to use these commands in the most right way on windows recommended to use cmder (console emulator)**
 - git clone repo
 - open folder of repo and create virtual environment with pythonV10 (ensure you install pythonV10)
   - `py -3.10 -m venv env` -> in terminal open within folder of repo
