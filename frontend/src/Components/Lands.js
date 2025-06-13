@@ -173,7 +173,16 @@ const handleAddLandClick = () => {
     };
 
 const getStatus = (land) => {
-    return land.status || "Unknown";
+  const status = land.status;
+  if (status === 'High Stress') {
+    return t('plantStatus.highStress');
+  } else if (status === 'Moderate Stress') {
+    return t('plantStatus.moderateStress');
+  } else if (status === 'Healthy') {
+    return t('plantStatus.healthy');
+  } else {
+    return t('plantStatus.unknown');
+  }
 };
 
     const [isChoosing, setIsChoosing] = useState(false);

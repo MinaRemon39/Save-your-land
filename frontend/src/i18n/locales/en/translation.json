@@ -15,7 +15,10 @@
     "step2": "The program analyzes the data to create a detailed land profile.",
     "step3": "An AI chatbot discusses findings with the user, asking questions and providing tailored advice.",
     "step4": "The system offers actionable insights, such as irrigation, or fertilization, or crop selection...etc",
-    "finalNote": "The flow visually represents how the program supports farmers in understanding and optimizing their agricultural land. It highlights how modern technology bridges the gap between complex data analysis and practical farming solutions."
+    "finalNote": "The flow visually represents how the program supports farmers in understanding and optimizing their agricultural land. It highlights how modern technology bridges the gap between complex data analysis and practical farming solutions.",
+    "soiltype":"Please select the soil type before saving.",
+    "landExist":"You already have a land with this name. Please choose a different name."
+
   },
   "footer": {
     "phoneTitle": "Phone number:-",
@@ -187,8 +190,12 @@
     "passwordShort": "Password must be at least 6 characters long!",
     "unknownError": "An unknown error occurred",
     "emailExists": "Email already exists",
-  "usernameExists": "Username already exists"
-
+    "usernameExists": "Username already exists",
+    "invalidCredentials": "Invalid username or password",
+    "publisherExists": "An application with this email or username already exists for publisher.",
+    "generalError": "An error occurred: ",
+    "linkError": "Please enter a valid article link starting with http:// or https://",
+    "enterCredentials": "Please enter username and password"
   },
   "panels": {
     "welcome": "Hello Friend!",
@@ -353,4 +360,12 @@
   "hardwareRequestFailed": "Failed to send request.",
   "reservationSuccess": "Setup reservation request sent!",
   "reservationFailed": "Failed to send reservation."
+,
+"auth": {
+  "signupError": "A user with this email or username already exists.",
+  "loginError": "Invalid username or password.",
+  "publisherNotApproved": "Publisher account not approved yet.",
+  "fieldsRequired": "Username and password are required.",
+  "unknownError": "An unknown error occurred. Please try again."
+}
 }

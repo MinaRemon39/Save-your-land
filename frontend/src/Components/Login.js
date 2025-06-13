@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -106,7 +106,11 @@ if (newPassword === '') {
                                                                                                                                                 
         navigate('/homein');  // Redirect to home page after login
       } else {
-        alert(data.error || "Login failed");
+        if (data.error === 'Invalid username or password') {
+      alert(t('login.invalidCredentials'));
+    } else {
+      alert(t('login.generalError') + data.error);
+    }
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -182,10 +186,18 @@ if (signUpInputs.userType === 'publisher') {
         } else {
           const errorData = await response.json();
           const errorMessage = errorData.error || 'Unknown error occurred';
+          if (errorMessage === 'Username already exists.') {
+          alert(t('login.usernameExists'));
+        } else if (errorMessage === 'Email already in use.') {
+          alert(t('login.emailExists'));
+        } else if (errorMessage === 'An application with this email or username already exists for publisher.') {
+          alert(t('login.publisherExists'));
+        } else {
           alert(t('login.signUpError') + errorMessage);
         }
+        }
       } catch (error) {
-        alert('Error occurred: ' + error.message);
+        alert(t('login.signUpError') + error.message);
       }
     }
   };
@@ -234,7 +246,7 @@ if (signUpInputs.userType === 'publisher') {
   const [linkError, setLinkError] = useState('');
   
   return (
-<div className="containeer">
+<div className="containeer ">
       <div className="signin-signup">
         <form className="sign-in-form" onSubmit={handleSignIn} autoComplete="off">
           <h2 className="title">{t("login.signInTitle")}</h2>
@@ -271,14 +283,6 @@ if (signUpInputs.userType === 'publisher') {
           <InputField iconClass="fas fa-envelope" type="email" placeholderKey="login.email" value={signUpInputs.email} onChange={(e) => setSignUpInputs({ ...signUpInputs, email: e.target.value })} />
           <InputField type="password" iconClass="fas fa-lock" placeholderKey="login.password" value={signUpInputs.password} autoComplete="new-password" onChange={handlePasswordChange} 
             />
-{/* {passwordStrength?.strength && (
-  <div
-    id="password-strength"
-    style={{ color: passwordStrength.color }}
-  >
-    Strength: {passwordStrength.strength}
-  </div>
-)} */}
           
 <InputField type="password" iconClass="fas fa-lock" placeholderKey="login.confirmPassword" value={signUpInputs.confirmPassword} onChange={(e) => setSignUpInputs({ ...signUpInputs, confirmPassword: e.target.value })} />
           <InputField iconClass="fas fa-phone" type="tel" placeholderKey="login.phone" value={signUpInputs.phoneNumber} onChange={handlePhoneChange} maxLength={11} error={phoneError} />

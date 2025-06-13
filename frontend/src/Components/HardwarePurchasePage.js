@@ -5,7 +5,7 @@ import {
   Button,
   Form,
 } from "react-bootstrap";
-import Image_1 from "./Images/photo_2024-10-29_21-03-55.jpg";
+import Image_1 from "./Images/d.png";
 import { useNavigate } from "react-router-dom";
 import Footer from './Footer';
 import NavbarWithNotification from './NavbarWithNotification';

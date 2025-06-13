@@ -152,16 +152,16 @@ const handleSave = () => {
     setSuccessMessage('');
 
     if (!subscription) {
-      setErrorMessage('Subscription data not loaded. Please try again.');
+      setErrorMessage(t('aboutSection.errorSubscription'));
       return;
     }
 
     if (!landToEdit && existingLandNames.includes(formData.landName)) {
-        setErrorMessage('You already have a land with this name. Please choose a different name.');
+        setErrorMessage(t('aboutSection.landExist'));
         return;
     }
     if (!formData.soilType) {
-      setErrorMessage('Please select the soil type before saving.');
+      setErrorMessage(t('aboutSection.soiltype'));
       return;
     }
 
@@ -169,48 +169,48 @@ const handleSave = () => {
     const userType = localStorage.getItem('user_type');
 
     if (userType !== "administrator" && !landToEdit && subscription.land_profiles_allowed <= landsUsed) {
-      setErrorMessage('You have reached the maximum number of land profiles allowed in your subscription.');
+      setErrorMessage(t('aboutSection.errorLimitReached'));
       return;
     }
 
     if (formData.soilPH < 0 || formData.soilPH > 14) {
-        setErrorMessage('Soil pH must be between 0 and 14.');
+        setErrorMessage(t('errorPH'));
         return;
     }
     if (formData.soilMoisture < 0 || formData.soilMoisture > 100) {
-        setErrorMessage('Soil moisture must be between 0% and 100%.');
+        setErrorMessage(t('errors.soilMoisture'));
         return;
     }
     if (formData.soilTemp < -50 || formData.soilTemp > 80) {
-        setErrorMessage('Soil temperature must be between -50°C and 80°C.');
+        setErrorMessage(t('errors.soilTemp'));
         return;
     }
     if (formData.ambientTemp < -50 || formData.ambientTemp > 80) {
-        setErrorMessage('Ambient temperature must be between -50°C and 80°C.');
+        setErrorMessage(t('errors.ambientTemp'));
         return;
     }
     if (formData.humidity < 0 || formData.humidity > 100) {
-        setErrorMessage('Humidity must be between 0% and 100%.');
+        setErrorMessage(t('errors.humidity'));
         return;
     }
     if (formData.lightIntensity < 0 || formData.lightIntensity > 200000) {
-        setErrorMessage('Light intensity must be between 0 and 200000 lux.');
+        setErrorMessage(t('errors.lightIntensity'));
         return;
     }
     if (formData.nitrogenLevel < 0 || formData.nitrogenLevel > 1000) {
-        setErrorMessage('Nitrogen level must be between 0 and 1000 mg/kg.');
+        setErrorMessage(t('errors.nitrogenLevel'));
         return;
     }
     if (formData.phosphorusLevel < 0 || formData.phosphorusLevel > 500) {
-        setErrorMessage('Phosphorus level must be between 0 and 500 mg/kg.');
+        setErrorMessage(t('errors.phosphorusLevel'));
         return;
     }
     if (formData.potassiumLevel < 0 || formData.potassiumLevel > 1000) {
-        setErrorMessage('Potassium level must be between 0 and 1000 mg/kg.');
+        setErrorMessage(t('errors.potassiumLevel'));
         return;
     }
     if (formData.organicMatter < 0 || formData.organicMatter > 20) {
-        setErrorMessage('Organic matter must be between 0% and 20%.');
+        setErrorMessage(t('errors.organicMatter'));
         return;
     }
 
@@ -237,7 +237,7 @@ const handleSave = () => {
             errorData.landName?.[0] ||
             errorData.non_field_errors?.[0] ||
             errorData.error ||
-            "Something went wrong while saving the land.";
+            (t('errors.saveFailed'));
 
         throw new Error(errorMessage);
     }
@@ -259,7 +259,13 @@ const handleSave = () => {
         navigate('/chat/lands');
     })
     .catch(error => {
-        setErrorMessage(error.message);
+            const backendMessage = error.message;
+
+    if (backendMessage === "You already have a land with this name.") {
+        setErrorMessage(t("aboutSection.landExist"));  
+    } else {
+        setErrorMessage(backendMessage);
+    }
     });
 };
 

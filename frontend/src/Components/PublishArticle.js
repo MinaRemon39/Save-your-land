@@ -25,11 +25,15 @@ export default function PublishArticle() {
   // Throttle timeout ref for updating formats on input
   const updateFormatsTimeout = useRef(null);
 
-
-    const countWords = (html) => {
-    const text = html.replace(/<[^>]*>/g, ''); 
-    return (text.match(/\b\w+\b/g) || []).length;
-  };
+const extractTextFromHtml = (html) => {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = html;
+  return tempDiv.textContent || tempDiv.innerText || '';
+};
+const countWords = (htmlContent) => {
+  const text = extractTextFromHtml(htmlContent);
+  return (text.match(/[\p{L}\p{N}_]+/gu) || []).length;
+};
   const applyTagToSelection = (tag) => {
   const selection = window.getSelection();
   if (!selection || selection.rangeCount === 0) return;
@@ -221,16 +225,17 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setErrorMessage('');
 
-    const wordCount = countWords1(article.content);
+ const wordCount = countWords(article.content);
+  if (!article.title || !article.content || article.content === '<p><br></p>') {
+    setErrorMessage(t('publish.fillRequired'));
+    return;
+  }
   if (wordCount < 100 || wordCount > 1000) {
     setErrorMessage(t('publish.wordsLimit'));
     return;
   }
 
-  if (!article.title || !article.content) {
-    setErrorMessage(t('publish.fillRequired'));
-    return;
-  }
+
   if (!token) {
     alert(t('publish.loginRequired'));
     navigate('/login');

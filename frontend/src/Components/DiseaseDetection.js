@@ -329,6 +329,3 @@ const land_id = land?.id;
 
 
   }
-
-
-

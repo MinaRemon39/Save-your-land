@@ -1,8 +1,6 @@
 import os
-from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import Optional
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from langchain.chains import LLMChain
@@ -22,7 +20,7 @@ soil_analysis_prompt = PromptTemplate(
         "history", "input",
         "soil_ph", "soil_moisture", "soil_air", "soil_temp", "ambient_temp",
         "humidity", "light_intensity", "nitrogen_level", "potassium_level", "phosphorus_level",
-        "chlorophyll_content", "electrochemical_signal", "organic_matter", "soil_type", "disease", "plant_status"
+        "chlorophyll_content", "electrochemical_signal", "organic_matter", "soil_type", "disease", "plant_status","plant_type"
     ],
     template="""
     أنت خبير في تحليل التربة وصحة النباتات.
