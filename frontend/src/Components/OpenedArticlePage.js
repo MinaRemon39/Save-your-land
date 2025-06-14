@@ -6,14 +6,17 @@ import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import NavbarWithNotification from './NavbarWithNotification';
 import Container from 'react-bootstrap/Container';
+import { useTheme } from './ThemeContext';
 import Loader from './Loader';
 import {
   Row,
   Col
 } from 'react-bootstrap';
 import DOMPurify from 'dompurify';
+import Footer from './Footer';
 
 export default function OpenedArticlePage() {
+  const [error, setError] = useState(null);
   const { articleId } = useParams();
   const [article, setArticle] = useState(null);
   const [isLiked, setIsLiked] = useState(false);
@@ -22,7 +25,7 @@ export default function OpenedArticlePage() {
   const [loading, setLoading] = useState(true);  
   const [articleLoadFailed, setArticleLoadFailed] = useState(false);
   const token = localStorage.getItem('token');
-  const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
 
 useEffect(() => {
@@ -116,15 +119,7 @@ useEffect(() => {
     setRating(index + 1);
   };
 
-if (loading) {
-  return (
-    <div className="articles pt-5 pb-5">
-      <Container>
-        <Loader />
-      </Container>
-    </div>
-  );
-}
+
 
 if (articleLoadFailed) {
   return (
@@ -138,7 +133,16 @@ if (articleLoadFailed) {
   return (
 <div>
 <NavbarWithNotification />
-    <div className='pt-4'>
+            <div className="profile pt-5 pb-5" >
+                <Container>
+                          {loading ? (
+          <div className="text-center my-5">
+            <Loader />
+          </div>
+        ) : error ? (
+          <div className="text-center text-danger my-5">{error}</div>
+        ) : (
+    <>
       <div className="container">
         <h3>{article.title}</h3>
         <div className="row p-4 mb-3">
@@ -191,7 +195,13 @@ className="me-5 hover-zoom"
   </Col>
 </Row>
         </div>
-      </div>
+    
+    </>
+        )}
+        </Container>
+      
+    </div>
+    <Footer />
     </div>
     
   );

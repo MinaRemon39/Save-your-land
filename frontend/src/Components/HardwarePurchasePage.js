@@ -130,6 +130,18 @@ setCurrentSubscription({
   };
 
   useEffect(() => {
+  if (isLoading) {
+    document.body.style.overflow = 'hidden'; 
+  } else {
+    document.body.style.overflow = '';        
+  }
+
+  return () => {
+    document.body.style.overflow = '';
+  };
+}, [isLoading]);
+
+  useEffect(() => {
     fetchSubscription();
   }, []);
 
@@ -409,7 +421,8 @@ const features = {
                 <Form className='w-100'>
                   {isLoading && (
   <>
-    <style>
+    <style> 
+      
       {`
         @keyframes spin {
           0% { transform: rotate(0deg); }

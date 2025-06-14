@@ -271,9 +271,17 @@ class ArticleViewSet(viewsets.ModelViewSet):
         serializer.save(author=user)
 
     def perform_update(self, serializer):
-        serializer.save()
+        old_instance = self.get_object()
+        old_image = old_instance.image
+
+        updated_instance = serializer.save()
+
+        if old_image and old_image != updated_instance.image:
+            old_image.delete(save=False)
 
     def perform_destroy(self, instance):
+        if instance.image:
+            instance.image.delete(save=False)
         instance.delete()
         
         

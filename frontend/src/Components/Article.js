@@ -28,18 +28,18 @@ export default function Article({ articleId, articleImg, articleName, articleBod
         )}
       </div>
 
-      <Card.Body className="d-flex flex-column text-white" style={{ padding: '0 1rem', flex: 1, position: 'relative' }}>
+      <Card.Body className="d-flex flex-column " style={{ padding: '0 1rem', flex: 1, position: 'relative' }}>
         <div className="text-center mb-2">
-          <h5 className="fw-semibold mt-2" style={{ color: '#6c757d', fontSize: '0.95rem' }}>
+          <h5 className="fw-semibold mt-2" style={{color: "rgb(152, 170, 113)", fontSize: '0.95rem' }}>
             {articleAuthorName}
           </h5>
-          <h5 className="mb-2 text-black-50" style={{ fontSize: '1rem' }}>
+          <h5 className="mb-2 " style={{ fontSize: '1rem' }}>
             {articleName}
           </h5>
         </div>
 
         <div
-  className="card-text mb-2 overflow-hidden text-black-50"
+  className="card-text mb-2 overflow-hidden "
   style={{
     display: '-webkit-box',
     WebkitLineClamp: 3,
@@ -59,5 +59,6 @@ export default function Article({ articleId, articleImg, articleName, articleBod
         </div>
       </Card.Body>
     </Card>
+
   );
 }

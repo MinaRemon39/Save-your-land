@@ -13,6 +13,7 @@ export default function NotificationPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [isLoadingHardware, setIsLoadingHardware] = useState(true);
 
   useEffect(() => {
@@ -124,7 +125,7 @@ export default function NotificationPage() {
     const endpoint = isHardware
       ? `http://localhost:8000/api/hardware-requests/${id}/`
       : `http://localhost:8000/api/publisher-requests/${id}/`;
-
+    setIsUpdating(true);
     fetch(endpoint, {
       method: "PATCH",
       headers: {
@@ -152,16 +153,58 @@ export default function NotificationPage() {
       })
       .catch(() => {
         alert(t("notifications.errorUpdating"));
-      });
+      }).finally(() => {
+      setIsUpdating(false);
+    });
   };
 
   // Show loader while authorizing or loading data
-  if (isAuthorized === null || isLoading || isLoadingHardware) {
+  if (isAuthorized === null || isLoading || isLoadingHardware ) {
     return <Loader />;
   }
 
 return (
     <div>
+      {isUpdating && (
+  <>
+    <style> 
+      
+      {`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }`
+      }
+    </style>
+
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'black',
+        opacity: 0.8,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 9999,
+      }}
+    >
+      <div
+        style={{
+          width: '80px',
+          height: '80px',
+          border: '10px solid #f3f3f3',
+          borderTop: '10px solid rgb(31, 160, 57)',
+          borderRadius: '50%',
+          animation: 'spin 2s linear infinite',
+        }}
+      />
+    </div>
+  </>
+)}
       <NavbarWithNotification />
       <div className="container" dir={isRTL ? "rtl" : "ltr"}>
         <div className="table-responsive pt-5">

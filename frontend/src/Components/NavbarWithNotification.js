@@ -1,167 +1,3 @@
-// src/Components/NavbarWithNotification.js
-// import React, { useState, useEffect } from "react";
-// import { Container, Nav, Navbar } from "react-bootstrap";
-// import { Link, useNavigate } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faMoon, faBell } from "@fortawesome/free-regular-svg-icons";
-// import Imge_1 from "./Images/photo_2024-10-29_21-03-55.jpg";
-// import LogoutButton from "./LogoutButton";
-// import { redirectToChatOrLands } from "./redirectToChatOrLands";
-
-// export default function NavbarWithNotification() {
-//   const navigate = useNavigate();
-//   const userType = localStorage.getItem("user_type");
-//   const [isBellClicked, setIsBellClicked] = useState(false);
-//   const [unreadCount, setUnreadCount] = useState(0);
-
-//   const updateUnreadCount = () => {
-//     const count = localStorage.getItem("unreadNotifications");
-//     setUnreadCount(parseInt(count) || 0);
-//   };
-
-// useEffect(() => {
-//   const fetchUnreadCount = async () => {
-//     const token = localStorage.getItem("token");
-//     try {
-//       const response = await fetch("http://localhost:8000/api/unread-publisher-count/", {
-//         headers: {
-//           "Authorization": `Token ${token}`,
-//         },
-//       });
-//       const data = await response.json();
-//       setUnreadCount(data.unread_count || 0);
-//       localStorage.setItem("unreadNotifications", data.unread_count || 0); 
-//     } catch (error) {
-//       console.error("Failed to fetch unread count", error);
-//     }
-//   };
-
-//   fetchUnreadCount();
-// }, []);
-
-//   const scrollToAbout = () => {
-//     navigate("/homein");  // Navigate to the homein page
-//     setTimeout(() => {
-//       const aboutSection = document.getElementById("about");
-//       if (aboutSection) {
-//         aboutSection.scrollIntoView({ behavior: "smooth" });  // Scroll to the about section
-//       }
-//     }, 100); // Delay to ensure the page loads before scrolling
-//   };
-
-//   return (
-//     <Navbar expand="lg" className="navbar">
-//       <Container>
-//         <Navbar.Brand href="#home">
-//           <img
-//             src={Imge_1}
-//             width="30"
-//             height="30"
-//             className="d-inline-block align-top"
-//             alt="Logo"
-//           />
-//         </Navbar.Brand>
-//         <Navbar.Toggle className="toggle" aria-controls="main" />
-//         <Navbar.Collapse id="main">
-//           <Nav className="ms-auto mb-2 mb-lg-0">
-//             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-//               <li className="nav-item">
-//                 <Link className="nav-link p-2 p-lg-3" to="/homein">
-//                   Home
-//                 </Link>
-//               </li>
-//               <li className="nav-item">
-//                 <a
-//                   className="nav-link p-2 p-lg-3"
-//                   onClick={scrollToAbout}
-//                   style={{ cursor: "pointer" }}
-//                 >
-//                   About
-//                 </a>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link p-2 p-lg-3" to="/articlespage">
-//                   Articles
-//                 </Link>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link p-2 p-lg-3 " to="/shop">Shop</Link>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link p-2 p-lg-3" to="/chat" onClick={() => redirectToChatOrLands(navigate)}>
-//                   Chat
-//                 </Link>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link p-2 p-lg-3" to="/disease">
-//                   Disease detection
-//                 </Link>
-//               </li>
-//               {userType === "publisher" && (
-//                 <li className="nav-item">
-//                   <Link className="nav-link p-2 p-lg-3" to="/publish">
-//                     Publish
-//                   </Link>
-//                 </li>
-//               )}
-//               <li className="nav-item">
-//                 <Link className="nav-link p-2 p-lg-3" to="/profile">
-//                   Profile
-//                 </Link>
-//               </li>
-//             </ul>
-//           </Nav>
-
-//           {/* Notification Button */}
-//           <button
-//             className="d-none d-lg-block ps-2 pe-3 fs-5 position-relative"
-//             style={{
-//               cursor: "pointer",
-//               color: isBellClicked ? "black" : "#00000080",
-//               background: "none",
-//               border: "none",
-//               padding: 0,
-//               fontSize: "inherit",
-//             }}
-// onClick={() => {
-//   setIsBellClicked(true);
-//   const token = localStorage.getItem("token");
-//   fetch("http://localhost:8000/api/mark-requests-read/", {
-//     method: "PATCH",
-//     headers: {
-//       "Authorization": `Token ${token}`,
-//     },
-//   })
-//     .then(() => {
-//       setUnreadCount(0);
-//       localStorage.setItem("unreadNotifications", 0);
-//       navigate("/notification");
-//     })
-//     .catch(err => console.error("Failed to mark as read", err));
-// }}
-//           >
-//             <FontAwesomeIcon icon={faBell} />
-//             {unreadCount > 0 && (
-//               <span
-//                 className="position-absolute badge bg-danger"
-//                 style={{ fontSize: "0.7rem", top: 0, right: 0 }}
-//               >
-//                 {unreadCount}
-//               </span>
-//             )}
-//           </button>
-
-//           <a className="d-none d-lg-block ps-3 pe-3 fs-5 text-black" href="/#">
-//             <FontAwesomeIcon icon={faMoon} />
-//           </a>
-
-//           <LogoutButton />
-//         </Navbar.Collapse>
-//       </Container>
-//     </Navbar>
-//   );
-// }
-
 
 import React, { useState, useEffect } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
@@ -171,7 +7,9 @@ import { faMoon, faBell, faSun } from "@fortawesome/free-regular-svg-icons";
 import Imge_1 from "./Images/photo_2024-10-29_21-03-55.jpg";
 import LogoutButton from "./LogoutButton";
 import { redirectToChatOrLands } from "./redirectToChatOrLands";
+import { useTheme } from './ThemeContext';
 import { useTranslation } from 'react-i18next';
+
 
 export default function NavbarWithNotification() {
   const location = useLocation();
@@ -180,7 +18,8 @@ export default function NavbarWithNotification() {
   const [isBellClicked, setIsBellClicked] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
   const [unreadHardwareCount, setUnreadHardwareCount] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
+  const { isDarkMode, setIsDarkMode } = useTheme();
+  const toggleTheme = () => setIsDarkMode(prev => !prev);
 
 useEffect(() => {
   if (isDarkMode) {
@@ -194,9 +33,6 @@ useEffect(() => {
 }, [isDarkMode]);
 
 
-  const toggleTheme = () => {
-    setIsDarkMode(prev => !prev);
-  };
       const { i18n, t } = useTranslation();
       const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
       const isRTL = i18n.language === 'ar';
@@ -381,7 +217,7 @@ useEffect(() => {
     // </Navbar>
     <Navbar expand="lg" className={`navbar ${isDarkMode ? 'navbar-dark' : 'custom-light-navbar'}`}>
   <Container>
-    <Navbar.Brand href="#home">
+    <Navbar.Brand href="/homein">
       <img src={Imge_1} width="30" height="30" alt="Logo" />
     </Navbar.Brand>
 

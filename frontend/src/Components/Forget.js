@@ -36,7 +36,9 @@ export default function Forget() {
                 setMessage(t('forgetPassword.successSent'));
                 setSubmitted(true); 
             } else {
-                setMessage(data.error || t('forgetPassword.error'));
+                setMessage(data.error === "User not found."
+                ? t('forgetPassword.userNotFound')
+                : t('forgetPassword.error'));
             }
         } catch (error) {
             setMessage(t('forgetPassword.serverError'));

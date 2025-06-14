@@ -24,8 +24,9 @@ import Notification from './Components/Notification';
 import HardwarePurchasePage from './Components/HardwarePurchasePage'; 
 import Administrator from './Components/Administrator'; 
 import {
-  ThemeProvider, createTheme
+  createTheme
 } from '@mui/material/styles';
+import { ThemeProvider } from './Components/ThemeContext';
 import { CssBaseline } from '@mui/material';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';

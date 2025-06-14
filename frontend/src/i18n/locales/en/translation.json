@@ -57,7 +57,8 @@
     "missingEmail": "Please enter your email address",
     "successSent": "✅ Password reset link sent. Please check your email.",
     "error": "Something went wrong",
-    "serverError": "Error connecting to server. Please try again later."
+    "serverError": "Error connecting to server. Please try again later.",
+    "userNotFound": "User not found."
   },
   "done": {
     "title": "Reset Password",

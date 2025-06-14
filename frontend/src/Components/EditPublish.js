@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import NavbarWithNotification from './NavbarWithNotification';
 import Footer from './Footer'
 import Loader from './Loader';
+import { useTheme } from './ThemeContext';
 import { useTranslation } from 'react-i18next';
 
 
@@ -14,7 +15,7 @@ export default function EditPublish() {
   const token = localStorage.getItem('token');
   const userType = localStorage.getItem('user_type');
   const navigate = useNavigate();
-
+  const { isDarkMode } = useTheme();
   const [article, setArticle] = useState({ title: '', content: '', image: null });
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -299,6 +300,7 @@ const initializeEditorContent = useCallback(() => {
 useEffect(() => {
   initializeEditorContent();
 }, [initializeEditorContent]);
+
 return (
   <div className="publish-page">
     <NavbarWithNotification />
@@ -313,7 +315,8 @@ return (
                 <div
                   className="editor-toolbar rounded-pill d-inline-flex flex-wrap gap-1 align-items-center p-2 mb-3"
                   style={{
-                    backgroundColor: "#F1F2F2",
+                    backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                    color: isDarkMode ? '#f1f1f1' : '#000',
                     overflowX: 'auto',
                     whiteSpace: 'nowrap',
                     borderRadius: '20px',
@@ -327,20 +330,29 @@ return (
                     }}
                     value={selectedStyle}
                     className="form-select form-select-sm me-2"
-                    style={{ width: '100px', border: "none", backgroundColor: "#F1F2F2" }}
+                    style={{ width: '100px', border: "none",backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',boxShadow: 'none',outline:'none'}}
                   >
                     <option value="p">Style</option>
                     <option value="h1">H1</option>
                     <option value="h2">H2</option>
                   </select>
 
-                  <button type="button" style={{ color: 'black'}} className={`btn btn-sm ${activeFormats.includes('bold') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('bold')}>B</button>
-                  <button type="button" style={{ color: 'black'}} className={`btn btn-sm ${activeFormats.includes('italic') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('italic')}>I</button>
-                  <button type="button" style={{ color: 'black'}} className={`btn btn-sm rounded-circle d-flex align-items-center justify-content-center p-2 ${activeFormats.includes('insertUnorderedList') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('insertUnorderedList')}><i className="fas fa-list-ul"></i></button>
-                  <button type="button" style={{ color: 'black'}} className={`btn btn-sm rounded-circle d-flex align-items-center justify-content-center p-2 ${activeFormats.includes('insertOrderedList') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('insertOrderedList')}><i className="fas fa-list-ol"></i></button>
-                  <button type="button" style={{ color: 'black'}} className="btn btn-sm btn-outline-dark" onClick={() => handleToolbarAction('insertHorizontalRule')}>—</button>
-                  <button type="button" style={{ color: 'black'}} className="btn btn-sm btn-outline-dark" onClick={() => handleToolbarAction('createLink')}>🔗</button>
-                  <button type="button" style={{ color: 'black'}} className="btn btn-sm btn-outline-dark" onClick={() => handleToolbarAction('formatBlock', 'blockquote')}>&quot;</button>
+                  <button type="button" style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',}} className={`btn btn-sm ${activeFormats.includes('bold') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('bold')}>B</button>
+                  
+                  <button type="button" style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',}} className={`btn btn-sm ${activeFormats.includes('italic') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('italic')}>I</button>
+                  <button type="button" style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',}} className={`btn btn-sm rounded-circle d-flex align-items-center justify-content-center p-2 ${activeFormats.includes('insertUnorderedList') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('insertUnorderedList')}><i className="fas fa-list-ul"></i></button>
+                  <button type="button" style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',}} className={`btn btn-sm rounded-circle d-flex align-items-center justify-content-center p-2 ${activeFormats.includes('insertOrderedList') ? 'btn-active' : 'btn-outline-dark'}`} onClick={() => handleToolbarAction('insertOrderedList')}><i className="fas fa-list-ol"></i></button>
+                  <button type="button" style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',}} className="btn btn-sm btn-outline-dark" onClick={() => handleToolbarAction('insertHorizontalRule')}>—</button>
+                  <button type="button" style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',}} className="btn btn-sm btn-outline-dark" onClick={() => handleToolbarAction('createLink')}>🔗</button>
+                  <button type="button" style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',}} className="btn btn-sm btn-outline-dark" onClick={() => handleToolbarAction('formatBlock', 'blockquote')}>&quot;</button>
                 </div>
               </div>
             </Col>
@@ -363,7 +375,8 @@ return (
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: "#F1F2F2",
+              backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+              color: isDarkMode ? '#f1f1f1' : '#000',
               textAlign: 'center',
               marginTop: '20px',
               position: 'relative',
@@ -406,7 +419,8 @@ return (
               </>
             )}
           </div>
-          <input type="file" accept="image/*" onChange={handleImage} ref={fileInputRef} style={{ display: 'none' }} />
+          <input type="file" accept="image/*" onChange={handleImage} ref={fileInputRef} 
+          style={{ display: 'none' }} />
 
           <Container className="mt-4 w-75 text-start">
             <Row className="mb-3">
@@ -419,6 +433,8 @@ return (
                 id="article-title"
                 name="title"
                 value={article.title}
+                style={{backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',outline:'none',boxShadow:'none'}}
                 onChange={handleInputChange}
                 required
                 aria-required="true"
@@ -464,7 +480,9 @@ return (
     border: '1px solid #ced4da',
     fontFamily: 'inherit',
     fontSize: '1rem',
-    backgroundColor: 'white',
+    backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+    color: isDarkMode ? '#f1f1f1' : '#000',
+    boxShadow:'none',
     outline: 'none',
     textAlign: 'start' 
   }}

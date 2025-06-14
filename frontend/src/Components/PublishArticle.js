@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useTheme } from './ThemeContext';
 import NavbarWithNotification from './NavbarWithNotification';
 import Loader from './Loader';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +17,7 @@ export default function PublishArticle() {
   const [activeFormats, setActiveFormats] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('p');
   const [loading, setLoading] = useState(true);
-
+  const { isDarkMode } = useTheme();
   const token = localStorage.getItem('token');
   const userType = localStorage.getItem('user_type');
   const fileInputRef = useRef(null);
@@ -274,8 +275,7 @@ const handleSubmit = async (e) => {
 if (loading) {
   return <Loader />;
 }
-const theme = localStorage.getItem('theme') || 'light'; // or 'dark'
-const isDarkMode = theme === 'dark';
+
 
   return (
     <div className="publish-page">
@@ -287,8 +287,10 @@ const isDarkMode = theme === 'dark';
               <div className="d-flex justify-content-start">
                 <div
                   className="editor-toolbar text-black rounded-pill d-inline-flex flex-wrap gap-1 align-items-center p-2 mb-3"
+
                   style={{
-                    backgroundColor: '#F1F2F2',
+                    backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                    color: isDarkMode ? '#f1f1f1' : '#000',
                     overflowX: 'auto',
                     whiteSpace: 'nowrap',
                     borderRadius: '20px',
@@ -301,9 +303,12 @@ const isDarkMode = theme === 'dark';
     setSelectedStyle(tag);
     applyTagToSelection(tag);
                     }}
+                    
                     value={selectedStyle}
                     className="form-select form-select-sm me-2"
-                    style={{ width: '100px', border: 'none', backgroundColor: '#F1F2F2' }}
+                    style={{ width: '100px', border: 'none',outline:'none',boxShadow:"none",
+                            backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000', }}
                     aria-label="Select block style"
                   >
                     <option value="p">Style</option>
@@ -315,7 +320,8 @@ const isDarkMode = theme === 'dark';
                     type="button"
                     className={`btn btn-sm ${activeFormats.includes('bold') ? 'btn-active'  : 'btn-outline-dark'}`}
                     onClick={() => handleToolbarAction('bold')}
-                    style={{ color: 'black'}}
+                    style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000',}} 
                     aria-label="Bold"
                     title="Bold"
                   >
@@ -325,7 +331,8 @@ const isDarkMode = theme === 'dark';
                     type="button"
                     className={`btn btn-sm ${activeFormats.includes('italic') ? 'btn-active' : 'btn-outline-dark'}`}
                     onClick={() => handleToolbarAction('italic')}
-                    style={{ color: 'black'}}
+                    style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000',}}
                     aria-label="Italic"
                     title="Italic"
                   >
@@ -337,7 +344,8 @@ const isDarkMode = theme === 'dark';
                       activeFormats.includes('insertUnorderedList') ? 'btn-active' : 'btn-outline-dark'
                     }`}
                     onClick={() => handleToolbarAction('insertUnorderedList')}
-                    style={{ color: 'black'}}
+                    style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000',}}
                     aria-label="Unordered List"
                     title="Unordered List"
                   >
@@ -348,7 +356,8 @@ const isDarkMode = theme === 'dark';
                     className={`btn btn-sm rounded-circle d-flex align-items-center justify-content-center p-2 ${
                       activeFormats.includes('insertOrderedList') ? 'btn-active' : 'btn-outline-dark'
                     }`}
-                    style={{ color: 'black'}}
+                    style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000',}}
                     onClick={() => handleToolbarAction('insertOrderedList')}
                     aria-label="Ordered List"
                     title="Ordered List"
@@ -360,7 +369,8 @@ const isDarkMode = theme === 'dark';
                     type="button"
                     className="btn btn-sm btn-outline-dark"
                     onClick={() => handleToolbarAction('insertHorizontalRule')}
-                    style={{ color: 'black'}}
+                    style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000',}}
                     aria-label="Insert Horizontal Rule"
                     title="Insert Horizontal Rule"
                   >
@@ -371,7 +381,8 @@ const isDarkMode = theme === 'dark';
                     type="button"
                     className="btn btn-sm btn-outline-dark"
                     onClick={() => handleToolbarAction('createLink')}
-                    style={{ color: 'black'}}
+                    style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000',}}
                     aria-label="Insert Link"
                     title="Insert Link"
                   >
@@ -381,7 +392,8 @@ const isDarkMode = theme === 'dark';
                     type="button"
                     className="btn btn-sm btn-outline-dark"
                     onClick={() => handleToolbarAction('formatBlock', 'blockquote')}
-                    style={{ color: 'black'}}
+                    style={{ backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                            color: isDarkMode ? '#f1f1f1' : '#000',}}
                     aria-label="Blockquote"
                     title="Blockquote"
                   >
@@ -406,15 +418,14 @@ const isDarkMode = theme === 'dark';
             className='w-75 shadow-sm'
             
             style={{
-              backgroundColor: isDarkMode ? '#2c2c2c' : '#F1F2F2',
-              color: isDarkMode ? '#f1f1f1' : '#000',
               borderRadius: '5px',
               height: image ? 'auto' : '300px',
               display: 'flex',
               flexDirection:'column',
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: "#F1F2F2",
+              backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+              color: isDarkMode ? '#f1f1f1' : '#000',
               textAlign: 'center',
               marginTop: '20px',
               position: 'relative',
@@ -475,6 +486,9 @@ const isDarkMode = theme === 'dark';
                 value={article.title}
                 onChange={handleInputChange}
                 required
+                style={{backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                        color: isDarkMode ? '#f1f1f1' : '#000',
+                        boxShadow:'none',outline:'none'}}
                 aria-required="true"
               />
             </Row>
@@ -498,7 +512,10 @@ const isDarkMode = theme === 'dark';
                   border: '1px solid #ced4da',
                   fontFamily: 'inherit',
                   fontSize: '1rem',
-                  backgroundColor: 'white',
+                  backgroundColor: isDarkMode ? '	#333333' : '#F1F2F2',
+                  color: isDarkMode ? '#f1f1f1' : '#000',
+                  boxShadow:'none',
+                  outline:'none'
                 }}
                 aria-multiline="true"
                 role="textbox"

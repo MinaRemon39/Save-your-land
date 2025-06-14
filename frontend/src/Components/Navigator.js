@@ -5,6 +5,7 @@ import Imge_1 from './Images/photo_2024-10-29_21-03-55.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
 import { useTranslation } from 'react-i18next';
+
 export default function Navigator(){
 const { i18n, t } = useTranslation();
   const location = useLocation();
@@ -44,7 +45,7 @@ useEffect(() => {
     return(
         <Navbar expand="lg" className={`navbar ${isDarkMode ? 'navbar-dark' : 'custom-light-navbar'}`}>
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
               <img src={Imge_1} width="30" height="30" alt="Logo" />
             </Navbar.Brand>
         

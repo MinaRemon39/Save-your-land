@@ -74,17 +74,17 @@ export default function ProfileArticle({
       <Card.Body className="card-text d-flex flex-column" style={{ padding: '0 1rem', flex: 1, position: 'relative' }}>
         
         <div className="text-center mb-2">
-          <h5 className="fw-semibold mt-3" style={{ color: '#6c757d', fontSize: '0.95rem' }}>
+          <h5 className="fw-semibold mt-3" style={{ color: "rgb(152, 170, 113)", fontSize: '0.95rem' }}>
             {articleAuthorName}
           </h5>
-          <h5 className="text-black-50 mb-2" style={{ fontSize: '1rem' }}>
+          <h5 className="mb-2" style={{ fontSize: '1rem' }}>
             {articleName}
           </h5>
         </div>
 
         
 <div
-  className="card-text mb-2 overflow-hidden text-black-50"
+  className="card-text mb-2 overflow-hidden "
   style={{
     display: '-webkit-box',
     WebkitLineClamp: 3,

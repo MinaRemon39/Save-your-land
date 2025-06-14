@@ -273,7 +273,19 @@ if (signUpInputs.userType === 'publisher') {
               disabled={!signInInputs.name || !signInInputs.password}
             >{t("login.signInTitle")}</button>
           </div>
-          <p className="account-text">{t("login.noAccount")} <a href="#n" id="sign-up-btn2">{t("login.signUp")}</a></p>
+          <p className="account-text">
+            {t("login.noAccount")}{" "}
+            <a
+              href="#"
+              id="sign-up-btn2"
+              onClick={(e) => {
+                e.preventDefault(); 
+                document.querySelector('.containeer')?.classList.add('sign-up-mode2');
+              }}
+            >
+              {t("login.signUp")}
+            </a>
+          </p>
         </form>
 
         {/* Sign Up Form */}
@@ -310,7 +322,12 @@ if (signUpInputs.userType === 'publisher') {
             <button type="submit" name="signup" className="but" onClick={() => setSignUpInputs({ ...signUpInputs, userType: 'user' })}>{t("login.signUpUser")}</button>
             <button type="submit" name="signup" className="but" onClick={() => setSignUpInputs({ ...signUpInputs, userType: 'publisher' })}>{t("login.signUpPublisher")}</button>
           </div>
-          <p className="account-text">{t("login.haveAccount")} <a href="#f" id="sign-in-btn2">{t("login.signIn")}</a></p>
+          <p className="account-text">{t("login.haveAccount")}
+              <a href="#signin" id="sign-in-btn2" onClick={() => {
+              document.querySelector('.containeer')?.classList.remove('sign-up-mode2');}}>
+            {t("login.signIn")}
+            </a>
+          </p>
         </form>
       </div>
 
